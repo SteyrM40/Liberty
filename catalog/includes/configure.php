@@ -19,19 +19,15 @@ define("DEBUG", 0);
 # Set PHP Error Output
 ini_set('error_reporting','E_ALL');
 
-
 # Database Configuration
-/*
 
 $dbHost = "localhost";
-$dbName = "[db_name]";
-$dbUser = "[db_user_name]";
-$dbPass = "[db_password]";
+$dbName = "Project";
+$dbUser = "Steyr_M40";
+$dbPass = "amp57779617";
 
 $dbh = mysql_pconnect($dbHost, $dbUser, $dbPass)
     or die("Could not connect to Mysql . mysql_error()");
 
-mysql_select_db("storefront", $dbh)
+mysql_select_db($dbName, $dbh)
     or die("Could not open database" . mysql_error() );
-
-*/

@@ -2,6 +2,8 @@
 
 include("includes/configure.php");
 
+include(APP_INCLUDES . "/app_top.php");
+
 # Load header.php
 include(APP_INCLUDES . "/header.php");
 
@@ -24,19 +26,19 @@ include(APP_INCLUDES . "/navbar.php");
 
                 <div class="carousel-inner">
                     <div class="item active">
-                        <img src="images/970x300.jpg" />
+                        <img src="images/970x300.jpg" alt="Westinghouse" />
                     </div>
                     <div class="item">
-                        <img src="images/970x300.jpg" />
+                        <img src="images/970x300.jpg" alt="Satco" />
                     </div>
                     <div class="item">
-                        <img src="images/970x300.jpg" />
+                        <img src="images/970x300.jpg" alt="Philips" />
                     </div>
                     <div class="item">
-                        <img src="images/970x300.jpg" />
+                        <img src="images/970x300.jpg" alt="GE" />
                     </div>
                     <div class="item">
-                        <img src="images/970x300.jpg" />
+                        <img src="images/970x300.jpg" alt="Lithonia" />
                     </div>
                 </div>
             </div>
@@ -50,24 +52,24 @@ was for temopary testing purposes-->
         <div class="row-fluid">
             <div class="row-fluid">
                 <div class="span4 well">
-                    <h4>Product Categories</h4>
-                    <p>List of Product Categories goes here</p>
+                    <h4>Browse Products</h4>
+                    <p>View a complete list of products.</p>
                     <center>
-                    <a href="product_info.php" class="btn btn-primary">Categories</a>
+                    <a href="products_list.php?a=list" class="btn btn-primary">Products</a>
                     </center>
                 </div>
                 <div class="span4 well">
                     <h4>Manufacturers</h4>
-                    <p>List of Manufaturers goes here</p>
+                    <p>Page not built</p>
                     <center>
-                    <a href="#" class="btn btn-primary">Manufacturers</a>
+                    <a href="man_list.php" class="btn btn-primary">Manufacturers</a>
                     </center>
                 </div>
                 <div class="span4 well">
                     <h4>About Us</h4>
-                    <p>Something needs to go here</p>
+                    <p>Page not built</p>
                     <center>
-                    <a href="#" class="btn btn-primary">About Us</a>
+                    <a href="page_construct.php" class="btn btn-primary">About Us</a>
                     </center>
                 </div>
             </div>

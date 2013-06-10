@@ -1,4 +1,4 @@
-<div class="footer well">
+<div class="footer well" style="clear:both">
            <footer>
               <p>&copy; Company 2013</p>
           </footer>

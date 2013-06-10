@@ -11,16 +11,15 @@
                             <li><a href="index.php">Home</a></li>
                             <li>
                                 <div class="btn-group">
-                                    <button class="btn">Categories</button>
+                                    <a class="btn" href="products_list.php?a=list">Products</a>
                                     <button class="btn dropdown-toggle" data-toggle="dropdown">
                                         <span class="caret"></span>
                                     </button>
                                     <ul class="dropdown-menu">
                                         <!-- dropdown menu links -->
-                                        <li><a href="#">something</a></li>
-                                        <li><a href="#">something</a></li>
-                                        <li><a href="#">something</a></li>
-                                        <li><a href="#">Login</a></li>
+                                        <li><a href="#">Flourescents</a></li>
+                                        <li><a href="#">Incandescents</a></li>
+                                        <li><a href="#">Ballasts</a></li>
                                     </ul>
                                 </div>
                             </li>
@@ -32,28 +31,51 @@
                                     </button>
                                     <ul class="dropdown-menu">
                                         <!-- dropdown menu links -->
-                                        <li><a href="#">something</a></li>
-                                        <li><a href="#">something</a></li>
-                                        <li><a href="#">something</a></li>
-                                        <li><a href="#">Login</a></li>
+                                        <li><a href="#">Westinghouse</a></li>
+                                        <li><a href="#">Satco</a></li>
+                                        <li><a href="#">GE</a></li>
+                                        <li><a href="#">Philips</a></li>
                                     </ul>
                                 </div>
                             </li>
+
+<?php if (!empty($_SESSION["username"]) ) { ?>
+
                             <li>
                                 <div class="btn-group">
-                                    <button class="btn">My Account</button>
+                                    <button class="btn">Welcome
+
+<?php print $_SESSION["username"]; ?>
+
+                                    </button>
                                     <button class="btn dropdown-toggle" data-toggle="dropdown">
                                         <span class="caret"></span>
                                     </button>
                                     <ul class="dropdown-menu">
                                         <!-- dropdown menu links -->
-                                        <li><a href="#">something</a></li>
-                                        <li><a href="#">something</a></li>
-                                        <li><a href="#">something</a></li>
-                                        <li><a href="#">Login</a></li>
+                                        <li><a href="login.php?a=logout">Logout</a></li>
                                     </ul>
                                 </div>
                             </li>
+
+<?php } else { ?>
+
+                            <li>
+                                <div class="btn-group">
+                                    <button class="btn">Welcome Guest
+                                    </button>
+                                    <button class="btn dropdown-toggle" data-toggle="dropdown">
+                                        <span class="caret"></span>
+                                    </button>
+                                    <ul class="dropdown-menu">
+                                        <!-- dropdown menu links -->
+                                        <li><a href="login.php">Login</a></li>
+                                    </ul>
+                                </div>
+                            </li>
+
+<?php } ?>
+
                         </ul>
                     </div>
                 </div>

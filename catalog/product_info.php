@@ -8,6 +8,23 @@ include(APP_INCLUDES . "/header.php");
 # Load navbar.php
 include(APP_INCLUDES . "/navbar.php");
 
+    if (!empty($_GET['p'])) $id = $_GET['p'];
+
+function prod() {
+
+    $product = array();
+    $sql = "SELECT * FROM product p WHERE p.id = '$id'";
+    $res = mysql_query($sql);
+
+    $row = mysql_fetch_array($res);
+
+    while ($row = mysql_fetch_array($res)) {
+        $product[] = $row;
+    }
+
+    return ($product);
+}
+
 ?>
 
 <div class="container">
@@ -23,15 +40,17 @@ include(APP_INCLUDES . "/navbar.php");
     </div>
 
     <div class="span6 well">
-        <!-- this is where the general discription and image of each product will appear-->
 
-        <h3>test text</h3><!--php code for product title-->
-        <img class="span2" src="http://placehold.it/200x200" /><!--src to be replaced with php to import image-->
-        <p class="span3">testing text</p><!--Text to be imported by php-->
-        <p class="span3">testing text</p><!--Text to be imported by php-->
+<?php
+
+    foreach ($product as $key => $item) { ?>
+
+        <h2><?php print $item["name"]; ?></h2>
+        <img class="span2" src="http://placehold.it/200x200" />
+        <h4 class="span3">Price <?php print $item["retail"]; ?></h4>
+        <h4 class="span3">Qty <?php print $item["qty"]; ?></h4>
         <div class="span3">
-            <a class="btn btn-primary pull-right">Buy Now</a>
-            <a class="btn btn-primary pull-right">Add to Cart</a>
+            <a class="btn btn-primary pull-right">Add to Cart</a><a class="btn btn-primary pull-right" style="margin-right:10px">Buy Now</a>
         </div>
     </div>
 
@@ -43,17 +62,19 @@ include(APP_INCLUDES . "/navbar.php");
         </ul>
 
         <div id="tabs-1">
-            <p>Test Text for tab 1</p>
+            <p><?php print $item["description"]; ?></p>
         </div>
 
         <div id="tabs-2">
-            <p>Test Text and tab 2</p>
+            <p>The layout for this section has yet to be determined so there is no information for this area at this time.</p>
         </div>
 
         <div id="tabs-3">
-            <p>Test Text and of course tab 3</p>
+            <p>The layout for this section has yet to be determined so there is no information for this area at this time.</p>
         </div>
     </div>
+
+<?php } ?>
 
     <div class="span3">
 
@@ -61,6 +82,20 @@ include(APP_INCLUDES . "/navbar.php");
 
     </div>
 
+</div>
+
+<div style="clear:both">
+    <pre>
+        <?php
+
+            if(empty($_GET))
+                echo "No GET variables";
+            else
+                print_r($_GET);
+                print($id);
+
+        ?>
+    </pre>
 </div>
 
 <?php
