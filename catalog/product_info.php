@@ -8,9 +8,9 @@ include(APP_INCLUDES . "/header.php");
 # Load navbar.php
 include(APP_INCLUDES . "/navbar.php");
 
-$id = $_GET['p'];
+//$id = $_GET['p'];
 
-function prod() {
+function prod($prodID) {
 
     $product = array();
     $sql = "SELECT
@@ -18,15 +18,13 @@ function prod() {
                 p.description as prod_drescription, p.retail,
                 p.qty
             FROM product p
-            WHERE p.id = $id";
+            WHERE p.id = $prodID";
 
     $res = mysql_query($sql);
 
     $row = mysql_fetch_array($res);
 
-    $product[] = $row;
-
-    return ($product);
+    return ($row);
 
 }
 ?>
@@ -45,14 +43,14 @@ function prod() {
 
     <div class="span6 well">
 
-<!--<?php
-prod();
-    //foreach ($product as $key => $item) { ?>-->
+<?php
+$product = prod($_GET['p']);
+?>
 
-        <h2>Product Name<?php print $item["prod_name"]; ?></h2>
+        <h2><?php print $product["prod_name"]; ?></h2>
         <img class="span2" src="http://placehold.it/200x200" />
-        <h4 class="span3">Price <?php print $item["retail"]; ?></h4>
-        <h4 class="span3">Qty <?php print $item["qty"]; ?></h4>
+        <h4 class="span3">Price <?php print $product["retail"]; ?></h4>
+        <h4 class="span3">Qty <?php print $product["qty"]; ?></h4>
         <div class="span3">
             <a class="btn btn-primary pull-right">Add to Cart</a><a class="btn btn-primary pull-right" style="margin-right:10px">Buy Now</a>
         </div>
@@ -66,7 +64,7 @@ prod();
         </ul>
 
         <div id="tabs-1">
-            <p><?php print $item["prod_drescription"]; ?></p>
+            <p><?php print $product["prod_drescription"]; ?></p>
         </div>
 
         <div id="tabs-2">
@@ -78,22 +76,6 @@ prod();
         </div>
     </div>
 
-<?php  ?>
-
-</div>
-
-<div style="clear:both">
-    <pre>
-        <?php
-
-            if(empty($_GET))
-                echo "No GET variables";
-            else
-                print_r($_GET);
-                print($id);
-
-        ?>
-    </pre>
 </div>
 
 <?php

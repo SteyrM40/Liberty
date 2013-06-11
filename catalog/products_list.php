@@ -42,8 +42,6 @@ function list_products() {
 
     $res = mysql_query($sql);
 
-    $row = mysql_fetch_array($res);
-
     while ($row = mysql_fetch_array($res)) {
         $product[] = $row;
     }
