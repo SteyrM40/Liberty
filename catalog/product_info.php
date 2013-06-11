@@ -45,8 +45,9 @@ function prod() {
 
     <div class="span6 well">
 
-<?php
-    foreach ($product as $key => $item) { ?>
+<!--<?php
+prod();
+    //foreach ($product as $key => $item) { ?>-->
 
         <h2>Product Name<?php print $item["prod_name"]; ?></h2>
         <img class="span2" src="http://placehold.it/200x200" />
@@ -77,7 +78,7 @@ function prod() {
         </div>
     </div>
 
-<?php } ?>
+<?php  ?>
 
 </div>
 
