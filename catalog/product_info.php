@@ -8,23 +8,27 @@ include(APP_INCLUDES . "/header.php");
 # Load navbar.php
 include(APP_INCLUDES . "/navbar.php");
 
-    if (!empty($_GET['p'])) $id = $_GET['p'];
+$id = $_GET['p'];
 
 function prod() {
 
     $product = array();
-    $sql = "SELECT * FROM product p WHERE p.id = '$id'";
+    $sql = "SELECT
+                p.id as product_id, p.name as prod_name,
+                p.description as prod_drescription, p.retail,
+                p.qty
+            FROM product p
+            WHERE p.id = $id";
+
     $res = mysql_query($sql);
 
     $row = mysql_fetch_array($res);
 
-    while ($row = mysql_fetch_array($res)) {
-        $product[] = $row;
-    }
+    $product[] = $row;
 
     return ($product);
-}
 
+}
 ?>
 
 <div class="container">
@@ -42,10 +46,9 @@ function prod() {
     <div class="span6 well">
 
 <?php
-
     foreach ($product as $key => $item) { ?>
 
-        <h2><?php print $item["name"]; ?></h2>
+        <h2>Product Name<?php print $item["prod_name"]; ?></h2>
         <img class="span2" src="http://placehold.it/200x200" />
         <h4 class="span3">Price <?php print $item["retail"]; ?></h4>
         <h4 class="span3">Qty <?php print $item["qty"]; ?></h4>
@@ -62,7 +65,7 @@ function prod() {
         </ul>
 
         <div id="tabs-1">
-            <p><?php print $item["description"]; ?></p>
+            <p><?php print $item["prod_drescription"]; ?></p>
         </div>
 
         <div id="tabs-2">
@@ -75,12 +78,6 @@ function prod() {
     </div>
 
 <?php } ?>
-
-    <div class="span3">
-
-        <!--Here will be the right sidebar that will contain the Cart and possibly more later-->
-
-    </div>
 
 </div>
 

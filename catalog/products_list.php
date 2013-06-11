@@ -38,7 +38,7 @@ function list_products() {
                 p.description as prod_drescription, p.retail,
                 p.qty
             FROM category c, product p
-            WHERE c.id = p.category_id"; //something wrong here ... its not listing product where product id = 1
+            WHERE c.id = p.category_id"; //something is wrong here ... its not listing product where product id = 1
 
     $res = mysql_query($sql);
 
